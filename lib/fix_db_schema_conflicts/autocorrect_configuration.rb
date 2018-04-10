@@ -9,7 +9,7 @@ module FixDBSchemaConflicts
     end
 
     def custom_file_exists?
-      File.exists? custom_file
+      File.exist? custom_file
     end
 
     private
