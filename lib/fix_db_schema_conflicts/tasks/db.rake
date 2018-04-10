@@ -11,9 +11,15 @@ namespace :db do
       else
         "#{Rails.root}/db/schema.rb"
       end
-      autocorrect_config = FixDBSchemaConflicts::AutocorrectConfiguration.load
-      rubocop_yml = File.expand_path("../../../../#{autocorrect_config}", __FILE__)
-      `bundle exec rubocop --auto-correct --config #{rubocop_yml} #{filename.shellescape}`
+      autocorrect_config = FixDBSchemaConflicts::AutocorrectConfiguration.new
+
+      rubocop_config = if autocorrect_config.custom_file_exists?
+        autocorrect_config.custom_file
+      else
+        File.expand_path("../../../../#{autocorrect_config.bundled_file}", __FILE__)
+      end
+
+      `bundle exec rubocop --auto-correct --config #{rubocop_config} #{filename.shellescape}`
     end
   end
 end

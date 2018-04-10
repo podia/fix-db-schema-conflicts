@@ -1,11 +1,15 @@
 module FixDBSchemaConflicts
   class AutocorrectConfiguration
-    def self.load
-      new.load
+    def bundled_file
+      at_least_rubocop_49? ? '.rubocop_schema.49.yml' : '.rubocop_schema.yml'
     end
 
-    def load
-      at_least_rubocop_49? ? '.rubocop_schema.49.yml' : '.rubocop_schema.yml'
+    def custom_file
+      File.join(Rails.root, 'config', ".rubocop.fix-db-schema-conflicts.yml")
+    end
+
+    def custom_file_exists?
+      File.exists? custom_file
     end
 
     private
