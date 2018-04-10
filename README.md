@@ -52,6 +52,10 @@ And then execute:
 
     $ bundle
 
+## Rubocop compatibility
+
+If you wish to override the Rubocop configuration used, place your custom config file at `config/.rubocop.fix-db-schema-conflicts.yml` in your Rails project.
+
 ## Older versions of Rubocop:
 
 If you wish to use a version of Rubocop `< 0.36.0` or below, use `gem 'fix-db-
