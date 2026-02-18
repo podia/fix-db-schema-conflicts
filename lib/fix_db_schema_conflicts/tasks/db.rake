@@ -13,13 +13,13 @@ namespace :db do
       end
       autocorrect_config = FixDBSchemaConflicts::AutocorrectConfiguration.new
 
-      rubocop_config = if autocorrect_config.custom_file_exists?
+      standard_config = if autocorrect_config.custom_file_exists?
         autocorrect_config.custom_file
       else
         File.expand_path("../../../../#{autocorrect_config.bundled_file}", __FILE__)
       end
 
-      `bundle exec rubocop --auto-correct --config #{rubocop_config} #{filename.shellescape}`
+      `bundle exec standardrb --fix --config #{standard_config} #{filename.shellescape}`
     end
   end
 end
