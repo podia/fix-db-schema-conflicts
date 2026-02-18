@@ -1,5 +1,3 @@
-[![CI](https://github.com/jakeonrails/fix-db-schema-conflicts/workflows/CI/badge.svg)](https://github.com/jakeonrails/fix-db-schema-conflicts/actions)
-
 # fix-db-schema-conflicts
 
 It prevents db/schema.rb conflicts in your Rails projects when working with
