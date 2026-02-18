@@ -1,0 +1,6 @@
+# Configuration for Standard (standardrb)
+# Standard is opinionated and uses sensible defaults
+# This config ensures consistent schema.rb formatting
+
+fix: true
+ruby_version: 2.0

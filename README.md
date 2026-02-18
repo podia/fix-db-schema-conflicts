@@ -1,5 +1,3 @@
-[![Build Status](https://travis-ci.org/jakeonrails/fix-db-schema-conflicts.svg?branch=master)](https://travis-ci.org/jakeonrails/fix-db-schema-conflicts)
-
 # fix-db-schema-conflicts
 
 It prevents db/schema.rb conflicts in your Rails projects when working with
@@ -31,8 +29,8 @@ By using the fix-db-schema-conflicts gem, this problem goes away.
 ## How it works
 
 This gem sorts the table, index, extension, and foreign key names before
-outputting them to the schema.rb file. Additionally it runs Rubocop with the
-auto-correct flag to ensure a consistent output format.
+outputting them to the schema.rb file. Additionally it runs Standard with the
+auto-fix flag to ensure a consistent output format.
 
 ## Usage
 
@@ -52,14 +50,21 @@ And then execute:
 
     $ bundle
 
-## Rubocop compatibility
+## Standard compatibility
 
-If you wish to override the Rubocop configuration used, place your custom config file at `config/.rubocop.fix-db-schema-conflicts.yml` in your Rails project.
+If you wish to override the Standard configuration used, place your custom config file at `config/.standard.fix-db-schema-conflicts.yml` in your Rails project.
 
-## Older versions of Rubocop:
+Example custom configuration:
 
-If you wish to use a version of Rubocop `< 0.36.0` or below, use `gem 'fix-db-
-schema-conflicts', '~> 1.0.2'`
+```yaml
+fix: true
+ruby_version: 3.0
+```
+
+## Older versions using Rubocop:
+
+If you wish to use a version that uses Rubocop instead of Standard, use `gem 'fix-db-
+schema-conflicts', '~> 3.0.2'`
 
 ## Older versions of Ruby:
 
